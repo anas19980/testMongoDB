@@ -24,9 +24,9 @@ exports.Ordersname = async (req, res) => {
 
 exports.addOrders = async(req,res)=>{
     const{customer_name,product,quantity,order_date,status}=req.body;
-    const Orders = new Orders({customer_name,product,quantity,order_date,status });
+    const orders = new Orders({customer_name,product,quantity,order_date,status });
     try{
-        const newOrders = await Orders.save();
+        const newOrders = await orders.save();
         res.status(201).json(newOrders);
     }catch(err){
         res.status(400).json({message: err.message })
